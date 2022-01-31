@@ -1,0 +1,28 @@
+{
+  "files": {
+    "commands/Utilities/ping.js": [
+      {
+        "id": "529c12cc-cb59-4972-a080-36c8ccbe8dd4",
+        "line": 23,
+        "version": 191,
+        "index": 710
+      }
+    ],
+    "events/messageCreate.js": [
+      {
+        "id": "fe214c17-fb2a-4cae-9894-b424ad4de2c8",
+        "line": 1,
+        "version": 190,
+        "index": 0
+      }
+    ],
+    "index.js": [
+      {
+        "id": "18f4fb15-9102-4dcd-8528-841e4e9349c4",
+        "line": 1,
+        "version": 544,
+        "index": 0
+      }
+    ]
+  }
+}
