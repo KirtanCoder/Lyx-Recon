@@ -27,8 +27,8 @@ client.command = new Collection();
 client.aliases = new Collection();
 client.categories = fs.readdirSync("./commands/");
 ["command"].forEach(handler => {
-    require(`./handlers/${handler}`)(client);
-}); 
+  require(`./handlers/${handler}`)(client);
+});
 
 const prefixSchema = require('./Models/PrefixSchema')
 
@@ -45,6 +45,5 @@ client.prefix = async function(message) {
   }
   return custom;
 }
-
 
 client.login(Token);

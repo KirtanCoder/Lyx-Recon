@@ -1,4 +1,4 @@
-const { CommandInteraction } = require('discord.js')
+const { CommandInteraction, Client } = require('discord.js')
 
 module.exports = {
     name: "ping",
@@ -6,8 +6,11 @@ module.exports = {
     /**
      * 
      * @param {CommandInteraction} interaction 
+     * @param {Client} interaction 
      */
-    async execute(interaction) {
-        interaction.reply({ content: "Pong" })
+    async execute(interaction, client) {
+      await interaction.deferReply({})
+        await interaction.editReply({ content: `⏱| **${client.ws.ping}ms** Latency!`})
+
     }
 }

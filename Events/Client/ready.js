@@ -1,11 +1,11 @@
 const mongoose = require('mongoose')
-const { MANGODB } = require('../../config.json')
+const client = require('../../index')
+const { MANGODB, prefix } = require('../../config.json')
 module.exports = {
   name: "ready",
-  execute(client) {
+  async execute(client) {
+      const p = await client.prefix
     console.log('The Client is Now Ready 💚')
-    client.user.setActivity(`| in | ${client.guilds.cache.size} Server `, { type: 'WATCHING' });
-
     if (!MANGODB) return;
     mongoose.connect(MANGODB, {
       useNewUrlParser: true,

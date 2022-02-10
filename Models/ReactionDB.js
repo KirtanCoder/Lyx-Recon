@@ -5,6 +5,6 @@ module.exports = model(
   new Schema({
     GuildID: String,
     ChannelID: String,
-    Roles: [String]
+    RoleID: [String]
   })
 );

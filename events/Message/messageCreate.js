@@ -1,3 +1,4 @@
+const { MessageEmbed } = require('discord.js')
 const { prefix } = require('../../config.json')
 const client = require('../../index')
 client.on('messageCreate', async message => {
@@ -11,7 +12,11 @@ client.on('messageCreate', async message => {
     const args = message.content.slice(p.length).trim().split(/ +/g);
     const cmd = args.shift().toLowerCase();
     if (cmd.length == 0) return;
+
+    
     let command = client.command.get(cmd)
     if (!command) command = client.command.get(client.aliases.get(cmd));
+    if(!message.member.permissions.has(command.perms || []))return message.channel.send({embeds: [new MessageEmbed().setDescription(`You Don't have \`${command.perms}\` To Run This Command`).setColor("RED")] })
+    if(!message.guild.me.permissions.has(command.bperms || []))return message.channel.send({embeds: [new MessageEmbed().setDescription(`I Don't have \`${command.bperms}\` To Run This Command`).setColor("RED")]}) 
     if (command) command.run(client, message, args)
 })
